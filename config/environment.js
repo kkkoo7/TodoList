@@ -5,6 +5,20 @@ module.exports = function(environment) {
     modulePrefix: 'todolist',
     environment,
     rootURL: '/',
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
+    firebase: {
+      apiKey: "AIzaSyAerICAY18fYTnZ1EaTBjal0mzXBkdV2rs",
+      authDomain: "todolistwithember.firebaseapp.com",
+      databaseURL: "https://todolistwithember.firebaseio.com",
+      projectId: "todolistwithember",
+      storageBucket: "todolistwithember.appspot.com",
+      messagingSenderId: "58352053641"
+    },
+
     locationType: 'auto',
     EmberENV: {
       FEATURES: {

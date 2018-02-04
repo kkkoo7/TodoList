@@ -1,0 +1,40 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        {{#link-to 'todos.new' class='btn btn-success'}}Create Todo{{/link-to}}
+        <hr>
+        {{outlet}}
+      </div>
+
+      <div class="col-md-8">
+        <div>
+          <form class="form-inline my-2 my-lg-0">
+            {{input class="form-control mr-sm-2" type="text" placeholder="Search Todos" value=filter id="Search"}}
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+        <hr>
+        <br>
+        {{#if filter}}
+          {{#each filterTodos as |todo|}}
+            <div class="well well-lg">
+              <h4>{{todo.title}} <span class="label label-default float-right">{{format-date todo.date}}</span></h4>
+              {{todo.body}}
+            </div>
+          {{/each}}
+        {{else}}
+          {{#each sortedTodos as |todo|}}
+            <div class="well well-lg">
+              <h4>{{todo.title}} <span class="label label-default float-right">{{format-date todo.date}}</span></h4>
+              {{todo.body}}
+            </div>
+          {{/each}}
+        {{/if}}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
